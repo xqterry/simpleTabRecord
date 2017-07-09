@@ -1,0 +1,45 @@
+{
+  "manifest_version": 2,
+
+  "name": "Tab recording utility",
+  "description": "This extension does something I never tried before",
+  "version": "1.0.1",
+
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_title":"capture tab"
+  },
+
+  "background":{  
+      "scripts":[  
+         "background.js",
+         "RecordRTC.hack.js"
+      ],
+      "persistent":false
+   },
+
+   "content_scripts": [ {
+      "js": [ "content.js" ],
+      "matches": [ "*://*/*" ]
+   } ],
+
+  "permissions": [
+    "<all_urls>",
+    "http://192.168.202.128/*",
+    "desktopCapture",
+      "storage",
+      "unlimitedStorage",
+      "system.cpu", 
+      "system.memory",
+      "contextMenus",
+      "tabs",
+      
+      "tabCapture",
+      "activeTab",
+      "background"
+      ,"webNavigation"
+      // ,"fileSystem"
+      // ,"experimental"
+      // ,"videoCapture"
+  ]
+}
